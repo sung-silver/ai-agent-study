@@ -3,6 +3,8 @@
 *_collection_*/*
 *_collection/*
 *.sqlite3
+*.sqlite
+*.bin
 
 __pycache__/
 google/
