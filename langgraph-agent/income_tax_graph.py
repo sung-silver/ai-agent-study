@@ -1,14 +1,10 @@
 # %%
 from langchain_chroma import Chroma
-from langchain_openai import AzureOpenAIEmbeddings
+from langchain_openai import OpenAIEmbeddings
 import os
 
 # embedding_function = OpenAIEmbeddings(model='text-embedding-3-large')
-embedding_function = AzureOpenAIEmbeddings(
-    model="text-embedding-3-large",
-    azure_endpoint=os.getenv("AZURE_OPENAI_ENDPOINT"),
-    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
-)
+embedding_function = OpenAIEmbeddings(model='text-embedding-3-large')
 vector_store = Chroma(
     embedding_function=embedding_function,
     collection_name = 'income_tax_collection',
@@ -35,12 +31,9 @@ def retrieve(state: AgentState):
     return {'context': docs}
 
 # %%
-from langchain_openai import AzureChatOpenAI
+from langchain_openai import ChatOpenAI
 
-llm = AzureChatOpenAI(
-    azure_deployment='gpt-4o-2024-11-20',
-    api_version='2024-08-01-preview',   
-)
+llm = ChatOpenAI(model='gpt-4o')
 
 # %%
 from langchain import hub
