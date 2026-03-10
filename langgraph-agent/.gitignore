@@ -3,6 +3,7 @@
 *_collection_*/*
 *_collection/*
 *.sqlite3
+chromadb.*
 __pycache__/
 google/
 .DS_Store
