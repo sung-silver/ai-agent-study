@@ -5,6 +5,7 @@
 *.sqlite3
 *.sqlite
 *.bin
+*.json
 
 __pycache__/
 google/
